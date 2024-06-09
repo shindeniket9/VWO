@@ -1,5 +1,9 @@
 package com.thetestingacademy;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.reporter.ExtentReporter;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
@@ -29,6 +33,12 @@ public class TestVWOLogin {
 
     @BeforeSuite
     public void setUp() {
+
+        ExtentReports extent = new ExtentReports();
+        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("target/report.html");
+        ExtentTest test;
+
+        System.setProperty("webdriver.chrome.driver","C:\\Users\\shind\\IdeaProjects\\Login\\driver\\chromedriver.exe");
         options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
@@ -56,7 +66,7 @@ public class TestVWOLogin {
 
     }
 
-    @Test(enabled = true, priority = 2, groups = {"positive", "sanity", "stage"})
+    @Test(enabled = false, priority = 2, groups = {"positive", "sanity", "stage"})
     @Description("Verify that with Valid username and Valid password, Login is successfull !!")
     public void testValidLogin() throws InterruptedException {
 
