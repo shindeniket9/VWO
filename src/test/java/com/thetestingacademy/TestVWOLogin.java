@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
 import org.testng.annotations.AfterSuite;
@@ -36,6 +37,8 @@ public class TestVWOLogin {
     public void setUp() {
 
         System.setProperty("webdriver.chrome.driver","C:\\Users\\shind\\IdeaProjects\\Login\\driver\\chromedriver.exe");
+        DesiredCapabilities capability = new DesiredCapabilities();
+        capability.setCapability("binary", "C:\\Users\\shind\\IdeaProjects\\chrome-win64\\chrome-win64\\chrome.exe");
         options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
