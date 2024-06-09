@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.*;
 import org.testng.Assert;
@@ -33,10 +34,6 @@ public class TestVWOLogin {
 
     @BeforeSuite
     public void setUp() {
-
-        ExtentReports extent = new ExtentReports();
-        ExtentSparkReporter sparkReporter = new ExtentSparkReporter("target/report.html");
-        ExtentTest test;
 
         System.setProperty("webdriver.chrome.driver","C:\\Users\\shind\\IdeaProjects\\Login\\driver\\chromedriver.exe");
         options = new ChromeOptions();
